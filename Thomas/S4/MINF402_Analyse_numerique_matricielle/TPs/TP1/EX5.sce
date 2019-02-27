@@ -22,6 +22,6 @@ X=zeros(1,5);
 n=5;
 A=round(10*rand(n,n));
 b=round(10*rand(5,1));
-X=RESOUINF(A,b,n)
-Y=RESOUSUP(A,b,n)
+X=RESOUINF(A,b,n);
+Y=RESOUSUP(A,b,n);
 disp(X);
