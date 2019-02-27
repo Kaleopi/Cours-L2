@@ -33,19 +33,19 @@ cmake_force:
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = "D:\JetBrains\CLion 2018.3.3\bin\cmake\win\bin\cmake.exe"
+CMAKE_COMMAND = "D:\Program Files\JetBrains\CLion 2018.3.3\bin\cmake\win\bin\cmake.exe"
 
 # The command to remove a file.
-RM = "D:\JetBrains\CLion 2018.3.3\bin\cmake\win\bin\cmake.exe" -E remove -f
+RM = "D:\Program Files\JetBrains\CLion 2018.3.3\bin\cmake\win\bin\cmake.exe" -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\Thoma\Desktop\Cours\S4\INFO402_C++\TP3\partie1_1
+CMAKE_SOURCE_DIR = D:\cours\Cours-L2\Thomas\S4\INFO402_C++\TP3\partie1_1
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\Thoma\Desktop\Cours\S4\INFO402_C++\TP3\partie1_1\cmake-build-debug
+CMAKE_BINARY_DIR = D:\cours\Cours-L2\Thomas\S4\INFO402_C++\TP3\partie1_1\cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/partie1_1.dir/depend.make
@@ -58,29 +58,29 @@ include CMakeFiles/partie1_1.dir/flags.make
 
 CMakeFiles/partie1_1.dir/main.cpp.obj: CMakeFiles/partie1_1.dir/flags.make
 CMakeFiles/partie1_1.dir/main.cpp.obj: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Thoma\Desktop\Cours\S4\INFO402_C++\TP3\partie1_1\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/partie1_1.dir/main.cpp.obj"
-	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\partie1_1.dir\main.cpp.obj -c C:\Users\Thoma\Desktop\Cours\S4\INFO402_C++\TP3\partie1_1\main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\cours\Cours-L2\Thomas\S4\INFO402_C++\TP3\partie1_1\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/partie1_1.dir/main.cpp.obj"
+	D:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\partie1_1.dir\main.cpp.obj -c D:\cours\Cours-L2\Thomas\S4\INFO402_C++\TP3\partie1_1\main.cpp
 
 CMakeFiles/partie1_1.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/partie1_1.dir/main.cpp.i"
-	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Thoma\Desktop\Cours\S4\INFO402_C++\TP3\partie1_1\main.cpp > CMakeFiles\partie1_1.dir\main.cpp.i
+	D:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\cours\Cours-L2\Thomas\S4\INFO402_C++\TP3\partie1_1\main.cpp > CMakeFiles\partie1_1.dir\main.cpp.i
 
 CMakeFiles/partie1_1.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/partie1_1.dir/main.cpp.s"
-	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Thoma\Desktop\Cours\S4\INFO402_C++\TP3\partie1_1\main.cpp -o CMakeFiles\partie1_1.dir\main.cpp.s
+	D:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\cours\Cours-L2\Thomas\S4\INFO402_C++\TP3\partie1_1\main.cpp -o CMakeFiles\partie1_1.dir\main.cpp.s
 
 CMakeFiles/partie1_1.dir/tp.cpp.obj: CMakeFiles/partie1_1.dir/flags.make
 CMakeFiles/partie1_1.dir/tp.cpp.obj: ../tp.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Thoma\Desktop\Cours\S4\INFO402_C++\TP3\partie1_1\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/partie1_1.dir/tp.cpp.obj"
-	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\partie1_1.dir\tp.cpp.obj -c C:\Users\Thoma\Desktop\Cours\S4\INFO402_C++\TP3\partie1_1\tp.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\cours\Cours-L2\Thomas\S4\INFO402_C++\TP3\partie1_1\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/partie1_1.dir/tp.cpp.obj"
+	D:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\partie1_1.dir\tp.cpp.obj -c D:\cours\Cours-L2\Thomas\S4\INFO402_C++\TP3\partie1_1\tp.cpp
 
 CMakeFiles/partie1_1.dir/tp.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/partie1_1.dir/tp.cpp.i"
-	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Thoma\Desktop\Cours\S4\INFO402_C++\TP3\partie1_1\tp.cpp > CMakeFiles\partie1_1.dir\tp.cpp.i
+	D:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\cours\Cours-L2\Thomas\S4\INFO402_C++\TP3\partie1_1\tp.cpp > CMakeFiles\partie1_1.dir\tp.cpp.i
 
 CMakeFiles/partie1_1.dir/tp.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/partie1_1.dir/tp.cpp.s"
-	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Thoma\Desktop\Cours\S4\INFO402_C++\TP3\partie1_1\tp.cpp -o CMakeFiles\partie1_1.dir\tp.cpp.s
+	D:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\cours\Cours-L2\Thomas\S4\INFO402_C++\TP3\partie1_1\tp.cpp -o CMakeFiles\partie1_1.dir\tp.cpp.s
 
 # Object files for target partie1_1
 partie1_1_OBJECTS = \
@@ -96,7 +96,7 @@ partie1_1.exe: CMakeFiles/partie1_1.dir/build.make
 partie1_1.exe: CMakeFiles/partie1_1.dir/linklibs.rsp
 partie1_1.exe: CMakeFiles/partie1_1.dir/objects1.rsp
 partie1_1.exe: CMakeFiles/partie1_1.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\Thoma\Desktop\Cours\S4\INFO402_C++\TP3\partie1_1\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable partie1_1.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=D:\cours\Cours-L2\Thomas\S4\INFO402_C++\TP3\partie1_1\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable partie1_1.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\partie1_1.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -109,6 +109,6 @@ CMakeFiles/partie1_1.dir/clean:
 .PHONY : CMakeFiles/partie1_1.dir/clean
 
 CMakeFiles/partie1_1.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" C:\Users\Thoma\Desktop\Cours\S4\INFO402_C++\TP3\partie1_1 C:\Users\Thoma\Desktop\Cours\S4\INFO402_C++\TP3\partie1_1 C:\Users\Thoma\Desktop\Cours\S4\INFO402_C++\TP3\partie1_1\cmake-build-debug C:\Users\Thoma\Desktop\Cours\S4\INFO402_C++\TP3\partie1_1\cmake-build-debug C:\Users\Thoma\Desktop\Cours\S4\INFO402_C++\TP3\partie1_1\cmake-build-debug\CMakeFiles\partie1_1.dir\DependInfo.cmake --color=$(COLOR)
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" D:\cours\Cours-L2\Thomas\S4\INFO402_C++\TP3\partie1_1 D:\cours\Cours-L2\Thomas\S4\INFO402_C++\TP3\partie1_1 D:\cours\Cours-L2\Thomas\S4\INFO402_C++\TP3\partie1_1\cmake-build-debug D:\cours\Cours-L2\Thomas\S4\INFO402_C++\TP3\partie1_1\cmake-build-debug D:\cours\Cours-L2\Thomas\S4\INFO402_C++\TP3\partie1_1\cmake-build-debug\CMakeFiles\partie1_1.dir\DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/partie1_1.dir/depend
 

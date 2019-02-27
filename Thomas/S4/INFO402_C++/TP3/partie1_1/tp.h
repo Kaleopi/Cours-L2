@@ -13,14 +13,23 @@ using namespace std;
 
 void ex1_2();
 void ex1_3();
+void ex1_4();
+void ex1_5();
 
 class Point2D{
 protected : float x,y;
 
 public :
     Point2D():x(1),y(2){}                     //Par défaut
-    Point2D(int u, int v):x(u),y(v){}         //Par initialisation
+    Point2D(float u, float v):x(u),y(v){}         //Par initialisation
     Point2D(const Point2D &p):x(p.x),y(p.y){} //Par copie
+    float getX()const{
+    return x;
+}
+    float getY()const{
+    return y;
+}
+
 };
 
 class Color{
@@ -36,6 +45,7 @@ public :
     Color(const color x):c(x){};
 };
 
+/*
 class SVGstream{
 private:ofstream fichier;
 
@@ -52,7 +62,24 @@ public :SVGstream(const char* name):fichier(name, ios::out | ios::trunc){
             svg.fichier << str;
             return svg;
         };
+
 };
+*/
+
+class SVGstream : public ofstream{
+
+public :SVGstream(const char* name): ofstream(name, ios::out | ios::trunc){
+    if(is_open()){
+            *this <<  "<!doctype html><svg width=\"1000\" height=\"1000\">" << endl;
+        }
+    };
+    ~SVGstream() {
+        *this << "</svg>";
+        close();
+    }
+};
+
+
 
 class Transform{
 public:
@@ -92,6 +119,8 @@ public:
         this->origine = p;
         this->color = color;
     }
+
+
     void setRayon(double rayon){
         this->rayon=rayon;
     }
@@ -113,7 +142,8 @@ public:
     void Translate(Point2D p){
         setOrigine(p);
     };
-    void Scale(int r){
+    void Scale(double r){
+        r*=rayon;
         setRayon(r);
     };
 
@@ -126,7 +156,7 @@ protected:
     Point2D origine;
     Color color;
 public:
-    Rectangle(double witdh, double height, Point2D p, Color color){
+    Rectangle(double witdh, double height, Point2D p,Color color){
         this->witdh = witdh;
         this->height = height;
         this->origine = p;
@@ -163,7 +193,7 @@ public:
         setOrigine(p);
     };
     void Scale(double pc){
-        if(pc>0 && pc<1){
+            if(pc>0 && pc<1){
             setWitdh(witdh*pc);
             setHeight(height*pc);
         }
@@ -171,6 +201,37 @@ public:
 };
 
 class Square : public Rectangle{
+protected:
+    double side;
+    Point2D p;
+    Color color;
+public:
+
+    Square(double side,Point2D p, Color color):Rectangle(side,side,p,color){
+
+    }
+
+    void setSide(double side){
+        setWitdh(side);
+        setHeight(side);
+    }
+
+
+
+};
+class PointsArray : public Point2D {
+
+protected: Point2D *T[2];
+
+public:
+    PointsArray(Point2D **T){
+
+        T[0]=new Point2D();
+        T[1]=new Point2D(2,4);
+        T[2]=new Point2D(5.0,5.4);
+
+    }
+
 
 };
 #endif //PARTIE1_1_TP_H
