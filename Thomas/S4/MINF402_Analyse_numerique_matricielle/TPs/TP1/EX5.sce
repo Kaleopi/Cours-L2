@@ -45,10 +45,9 @@ A=round(10*rand(n,n));
 b=round(10*rand(5,1));
 X=RESOUINF(A,b,n);
 Y=RESOUSUP(A,b,n);
-<<<<<<< HEAD
-=======
 X=RESOUINF(A,b,n);
 Y=RESOUSUP(A,b,n);
+=======
 >>>>>>> ba36c65f6b3d428dce083cf8c53bbec902c0c96e
 =======
 >>>>>>> ba36c65f6b3d428dce083cf8c53bbec902c0c96e
