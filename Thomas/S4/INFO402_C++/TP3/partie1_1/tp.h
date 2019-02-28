@@ -165,7 +165,7 @@ public:
     void setWitdh(double witdh){
         this->witdh=witdh;
     }
-    void setHeight(double height){
+    void setHeight(double height) {
         this->height=height;
     }
     void setOrigine(Point2D p){
