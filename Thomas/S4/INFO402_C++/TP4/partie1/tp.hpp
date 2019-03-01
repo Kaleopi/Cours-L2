@@ -8,11 +8,14 @@
 #include <fstream>
 #include <ostream>
 #include <string>
+#include <initializer_list>
+#include <vector>
 
 using namespace std;
 
-void ex1_2();
-void ex1_3(void);
+void tp3ex1_2();
+void tp3ex1_3(void);
+void tp4ex1();
 
 class Point2D{
 protected :
@@ -22,6 +25,11 @@ public :
     Point2D():x(1),y(2){}                     //Par défaut
     Point2D(int u, int v):x(u),y(v){}         //Par initialisation
     Point2D(const Point2D &p):x(p.x),y(p.y){} //Par copie
+    float getPoint2Dx(){return x;}
+    float getPoint2Dy(){return y;}
+    void setPoint2Dx(float x){this->x = x;}
+    void setPoint2Dy(float x){this->y = y;}
+    void info(){cout << "(" << x << "," << y <<")";}
 };
 
 class Color{
@@ -177,12 +185,39 @@ class Square : public Rectangle{
 
 class PointsArray : public Transform, public Point2D{
 protected:
-  Point2D pArray [5];
+  Point2D *pArray;
+  int size;
 
 public:
-  PointsArray():pArray(Point2D()){
-    for(int i=0 ; i<5 ; i++){
+  PointsArray(int s){
+    size = s;
+    pArray = new Point2D[size];
+    for(int i=0 ; i<size ; i++){
       pArray[i] = Point2D(i,i);
+    }
+  }
+  PointsArray(const PointsArray &p):pArray(p.pArray){}
+  PointsArray& operator=(const PointsArray &p){
+    if(this!=&p){
+      for(int i=0 ; i<size ; i++){
+        pArray[i] = p.pArray[i];
+      }
+    }
+    return *this;
+  }
+  PointsArray(const initializer_list<Point2D> &list){
+    size = list.size();
+    pArray = new Point2D[size];
+    int i=0;
+    for(const Point2D& p:list){
+      pArray[i++]=p;
+    }
+  }
+
+  void info(){
+    // cout << size;
+    for(int i=0 ; i<size ; i++){
+      pArray[i].info();
     }
   }
 };

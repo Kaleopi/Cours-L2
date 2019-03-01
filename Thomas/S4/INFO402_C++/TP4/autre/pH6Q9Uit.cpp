@@ -16,7 +16,7 @@ using namespace std;
 //~ class Point{
 	//~ private:
 	//~ int x,y;
-	//~ 
+	//~
 	//~ public:
 		//~ inline Point():x(0),y(0){}
 		//~ inline Point(int a, int b):x(a),y(b){}
@@ -30,7 +30,7 @@ using namespace std;
 	class Point{
 	private:
 	float x,y;
-	
+
 	public:
 		inline Point();
 		inline Point(float a, float b);
@@ -39,11 +39,11 @@ using namespace std;
 		inline float getPoint_y()const;
 		inline void setPoint_x(float flo);
 		inline void setPoint_y(float flo);
-		
-		Point& operator =(const Point &P);	
+
+		Point& operator =(const Point &P);
 };
 //!FIN POIN.h
-//!DEBUT POINT.cpp	
+//!DEBUT POINT.cpp
 	inline Point::Point():x(0),y(0){}
 	inline Point::Point(float a, float b):x(a),y(b){}
 	inline Point::Point(const Point &P):x(P.x),y(P.y){}
@@ -51,7 +51,7 @@ using namespace std;
 	inline float Point::getPoint_y()const{ return y;}
 	inline void Point::setPoint_x(float flo){this->x=flo;}
 	inline void Point::setPoint_y(float flo){this->y=flo;}
-	
+
 	Point& Point::operator =(const Point &P){
 		cout << "Point: operator = " << endl;
 		if(this!=&P){
@@ -60,23 +60,23 @@ using namespace std;
 		}
 		return *this;
 	}
-	
+
 	ostream& operator<<(ostream &os ,const Point p){
 		os << "( " << p.getPoint_x() <<" , " << p.getPoint_y() <<" )"<< endl;
 		return os;
 	}
-	
+
 //!FIN DE POINT .cpp
 //!DEBUT COLOR.H
 class Color{
 	public:
-	enum color { white, yellow, orange, turquoise, violet, pink, red, green, grey, cyan, blue, brown};//Chap 1 p12 
-	
+	enum color { white, yellow, orange, turquoise, violet, pink, red, green, grey, cyan, blue, brown};//Chap 1 p12
+
 	// tester avec enum color:const char* {black = "black ", ... } // dans main Color c(Color::red);
 	private :
 	color couleur;
 	static const char* name[];
-	
+
 	public:
 	inline Color();
 	inline Color(color c );
@@ -84,7 +84,7 @@ class Color{
 	void view();
 	const char* getColor()const;
 
-	
+
 };
 //!FIN COLOR.H
 //!DEBUT COLOR.CPP
@@ -94,7 +94,7 @@ class Color{
 	void Color::view(){ cout << couleur << endl; }
 	const char* Color::getColor()const{ return name[couleur];}
 
-const char* Color::name[]={ "white", "yellow", "orange", "turquoise", "violet", "pink", "red", "green", "grey", "cyan", "blue", "brown"};//Chap 1 p12 
+const char* Color::name[]={ "white", "yellow", "orange", "turquoise", "violet", "pink", "red", "green", "grey", "cyan", "blue", "brown"};//Chap 1 p12
 //!FIN COLOR.CPP
 //!DEBUT TRANSFORM.H
 class Transform{//Interface ne contient que des méthodes virtuels pures (méthodes implémentés dans les classes qui héritent de cette interface/classe abstraite pure ) n'implémentez JAMAIS une fonction virtuelle pure dans cette même classe
@@ -109,13 +109,13 @@ class Geom2D: public Transform{
 	protected:
 		Point p;
 	public:
-	
+
 	//Constructeurs
 	inline Geom2D();//on utilise le constructeur par défaut de Point
 	inline Geom2D(float x,float y);//on utilise le constructeur qui prend deux entier de Point
 	inline void info();
 
-		
+
 	inline Point getPoint()const;//modification ici avec erreur dans setter
 	inline void setX(float x);
 	inline void setY(float y);
@@ -130,11 +130,11 @@ class Geom2D: public Transform{
 		cout << "Coordonnées : " << p.getPoint_x() << ", " << p.getPoint_y() << endl;
 	}
 
-		
+
 	inline Point Geom2D::getPoint()const{return p;}//modification ici avec erreur dans setter
 	inline void Geom2D::setX(float x){p.setPoint_x(x);}
 	inline void Geom2D::setY(float y){p.setPoint_y(y);}
-		
+
 //!FIN GEOM2D.CPP
 //!DEBUT FILLPROPERTY.H
 class FillProperty{
@@ -144,7 +144,7 @@ class FillProperty{
 	//Constructeurs
 		inline FillProperty();
 		inline FillProperty(const Color &Couleur);
-		
+
 		inline void info();// à suppr juste pour tests
 		inline const char* getColor()const;
 };
@@ -152,7 +152,7 @@ class FillProperty{
 //!DEBUT FILLPROPERTY.cpp
 	inline FillProperty::FillProperty():C(){}
 	inline FillProperty::FillProperty(const Color &Couleur):C(Couleur){}
-	
+
 	inline void FillProperty::info(){cout << C.getColor() << endl;}// à suppr juste pour tests
 	inline const char* FillProperty::getColor()const{return C.getColor();}
 //!FIN FILLPROPERTY.cpp
@@ -163,16 +163,16 @@ class Surface : public Geom2D, public FillProperty{//classe virtuelle à cause d
 	public:
 	//Constructeurs
 		inline Surface();
-		inline Surface(float x, float y, const Color& Couleur);		
+		inline Surface(float x, float y, const Color& Couleur);
 		inline void info();
-		virtual double aire(){return 0;}//pas d'air pour l'instant on ne dispose que d'un point et d'une couleur 
+		virtual double aire(){return 0;}//pas d'air pour l'instant on ne dispose que d'un point et d'une couleur
 		virtual void Rotate( float rotation){S_rotate = rotation;}
 		inline float getRotate()const;
 };
 //!FIN SURFACE.H
 //!DEBUT SURFACE.cpp
 	inline Surface::Surface():Geom2D(),FillProperty(),S_rotate(0){cout << "Surface defaut " << endl;}
-	inline Surface::Surface(float x, float y, const Color& Couleur):Geom2D(x,y),FillProperty(Couleur),S_rotate(0){cout << "S_tout spécifier\n" << endl;};		
+	inline Surface::Surface(float x, float y, const Color& Couleur):Geom2D(x,y),FillProperty(Couleur),S_rotate(0){cout << "S_tout spécifier\n" << endl;};
 	inline void Surface::info(){
 		cout << "Surface : \nCouleur " << C.getColor() << "\nGeom2D (x,y) : ( " << p.getPoint_x() << " , "  << p.getPoint_y() << " )\n" << endl;
 	}
@@ -182,7 +182,7 @@ class Surface : public Geom2D, public FillProperty{//classe virtuelle à cause d
 class Disc : public Surface{
 	private:
 		float rayon;
-	public: 
+	public:
 	//Constructeurs
 		inline Disc();
 		inline Disc(float x, float y ,const Color& Couleur, float r);
@@ -199,7 +199,7 @@ class Disc : public Surface{
 		cout << "Disc : \nCouleur " << C.getColor() << "\nGeom2D (x,y) : ( " << p.getPoint_x() << " , "  << p.getPoint_y() << " )\n" << "Rayon : " << rayon << "\n" << endl;
 	}
 	inline float Disc::getRayon()const{return rayon;}
-	
+
 //!FIN DISC.cpp
 
 //!DEBUT RECTANGLE.H
@@ -216,10 +216,10 @@ class Rectangle : public Surface{
 		inline float getLargeur()const;
 		inline void setHauteur( float h);
 		inline void setLargeur( float l);
-		
+
 		virtual double aire(){return hauteur*largeur;}
 		virtual void Scale(float s ){hauteur*=s;largeur*=s;}
-	
+
 };
 //!FIN RECTANGLE.H
 
@@ -252,15 +252,15 @@ class Square : public Rectangle{// On utilise uniquement la hauteur pour le carr
 		inline void Square::info(){
 			cout << "Square : \nCouleur " << C.getColor() << "\nGeom2D (x,y) : ( " << p.getPoint_x() << " , "  << p.getPoint_y() << " )\n" << hauteur << "\n" << endl;
 		}
-		
+
 //!FIN RECTANGLE.CPP
 
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! PAS IMPLEMENTER
 class LineProperty:public FillProperty{
 	//Uniquement des méthodes virtuel=0 PURES
-	
+
 };
-class Curve:public LineProperty{	
+class Curve:public LineProperty{
 	private:
 		Point A,B;
 		int largeur;
@@ -272,7 +272,7 @@ class Curve:public LineProperty{
 		inline int getLargeur()const{return largeur;}
 };
 class Segment{
-	
+
 };
 //!!!!!!!!!!!!!!!!!!!!! Fin des trucs pas implémenté
 //!DEBUT SVGSTREAM.H
@@ -288,8 +288,8 @@ class SVGstream{
 				fichier.close();
 			}
 		}
-		
-	ostream& operator<<(const string s){//operator définie dans la classe, on a directement acces aux champs 
+
+	ostream& operator<<(const string s){//operator définie dans la classe, on a directement acces aux champs
 			fichier << s << endl;
 			return fichier;
 		}
@@ -324,13 +324,13 @@ class SVGstream{
 //!FIN TP3
 //!DEBUT TP4
 
-//!DEBUT POINTARRAY.H 
+//!DEBUT POINTARRAY.H
 class PointArray{//avec pointeur
 	protected:
 	 	size_t taille;
 		static const size_t def = 3;
 		Point* array;
-		
+
 	public:
 
 	inline PointArray(size_t t);
@@ -341,7 +341,7 @@ class PointArray{//avec pointeur
 
 	~PointArray(){cout << "PointArray: Destructeur" << endl;delete [] array;}
 	Point& operator[](const unsigned int &a){
-		assert(taille < a);//attention il faut arreter l'execution 
+		assert(taille < a);//attention il faut arreter l'execution
 		return array[a];
 	}
 	inline void view();
@@ -364,16 +364,16 @@ class PointArray{//avec pointeur
 		}
 	}
 	//*******************monvecteur ?
-	
+
 	//*******************CONSTRUCTEUR A PARTIR DUNE LISTE DE POINT
 	inline PointArray::PointArray(const std::initializer_list<float> &list):PointArray(list.size()/2){// Stratégie : On passe un nombre pair d'int et on les met dans un point qu'on va ranger au fur et a mesure dans le tableau
-		//si le nombre passé est impair on fait quoi ? 
+		//si le nombre passé est impair on fait quoi ?
 		//~ cout << " PointArray : Cinittializer_list"<< endl ;
 		//~ cout << "taille de tableau "<< list.size() << endl ;
 		float* tableau_entier = new float[list.size()];//ou list list.size()
 		Point P;
 		size_t j=0;
-		for(auto &i : list){// le prof veut faire comme ça mais j'ai pas compris, il veut qu'on fasse un tableau dynamique d'int en plus ? 
+		for(auto &i : list){// le prof veut faire comme ça mais j'ai pas compris, il veut qu'on fasse un tableau dynamique d'int en plus ?
 			tableau_entier[j]=i;
 			j++;
 		}
@@ -383,19 +383,19 @@ class PointArray{//avec pointeur
 			this->array[k]=P;
 			//cout << array[k] << endl;
 		}
-		
+
 		//cout << array[i] << endl;//**********
 		delete [] tableau_entier;
 	}
-	//*******************CONSTRUCTEUR A PARTIR  et à partir de: un nombre de points n, un centre c et une taille s qui 
-	//initialise une liste de n points régulièrement répartis sur un cercle de centre c et de rayon r (à savoir 
-	//les points Pi du PointsArray sont Pi(x,y) = c + r * ( cos[theta(i)], sin[theta(i)] ) où theta(i) =2.pi/n*i et i est dans {0,1,...,n-1}). 
+	//*******************CONSTRUCTEUR A PARTIR  et à partir de: un nombre de points n, un centre c et une taille s qui
+	//initialise une liste de n points régulièrement répartis sur un cercle de centre c et de rayon r (à savoir
+	//les points Pi du PointsArray sont Pi(x,y) = c + r * ( cos[theta(i)], sin[theta(i)] ) où theta(i) =2.pi/n*i et i est dans {0,1,...,n-1}).
 	inline PointArray::PointArray(unsigned int nb_point, Point centre,float rayon, float s):PointArray(nb_point){//********************CONVERSION*********************************************
 		Point P;
 		float teta;
 		for(unsigned int i = 0 ; i < nb_point ; i++ ){
 			teta = static_cast<float>(2.f*PI*i)/static_cast<float>(nb_point);
-			P.setPoint_x( ( centre.getPoint_x()+rayon ) *cos(teta));//Comment regler le problème ? 
+			P.setPoint_x( ( centre.getPoint_x()+rayon ) *cos(teta));//Comment regler le problème ?
 			P.setPoint_y( ( centre.getPoint_y()+rayon ) *sin(teta));
 			this->array[i] = P;
 		}
@@ -417,7 +417,7 @@ class PointArray{//avec pointeur
 	inline void PointArray::rotate(float rotation){
 		float cx=0,
 			cy=0;
-		//CALCUL DU CENTRE :(Pour le barycentre ou centre de gravité on fait la moyenne des X et la moyenne des Y) 
+		//CALCUL DU CENTRE :(Pour le barycentre ou centre de gravité on fait la moyenne des X et la moyenne des Y)
 		for(size_t i = 0; i < taille; i++){
 			cx=array[i].getPoint_x()+cx;
 			cy=array[i].getPoint_y()+cy;
@@ -432,7 +432,7 @@ class PointArray{//avec pointeur
 			y=array[i].getPoint_y();
 			tableau[i].setPoint_x(x*cosf(rotation)-y*cosf(rotation));//cosf() renvoit un float ça évite un static_cast en plus
 			tableau[i].setPoint_y(x*cosf(rotation)+y*cosf(rotation));
-		
+
 		}
 		//On met dans le tableau
 		for(size_t i = 0; i < taille ; i++){
@@ -444,7 +444,7 @@ class PointArray{//avec pointeur
 	inline void PointArray::scale(float s){// Scale avec un double serait préférable
 		//Calcul du centre
 		float cx = 0.f,
-			cy = 0.f; 
+			cy = 0.f;
 		for(size_t i = 0; i < taille; i++){
 			cx=array[i].getPoint_x()+cx;
 			cy=array[i].getPoint_y()+cy;
@@ -458,20 +458,20 @@ class PointArray{//avec pointeur
 			array[i].setPoint_x(cx+s*(x-cx));
 			array[i].setPoint_y(cy+s*(y-cy));
 		}
-		
+
 	}
 //!FIN POINTARRAY.CPP
 
 //!DEBUT ReallocablePointsArray.h
 class ReallocatablePointsArray : public PointArray{
-	//Le prof m'a dit que ajouter un champ nombre d'element serait mieux. Pour l'assignation, un exemple R1.taille = 10 R2.taille = 3 si on fait R1 = R2 il va falloir delete un tableau de 10 pour en refaire un de trois alors qu'il y a assez de place pour lui mettre 3 element ! Allocation inutile (Pour un )! 
+	//Le prof m'a dit que ajouter un champ nombre d'element serait mieux. Pour l'assignation, un exemple R1.taille = 10 R2.taille = 3 si on fait R1 = R2 il va falloir delete un tableau de 10 pour en refaire un de trois alors qu'il y a assez de place pour lui mettre 3 element ! Allocation inutile (Pour un )!
 	public:
 		inline ReallocatablePointsArray();
 		inline ReallocatablePointsArray(size_t taille);
-		inline ReallocatablePointsArray(const ReallocatablePointsArray &R);		
+		inline ReallocatablePointsArray(const ReallocatablePointsArray &R);
 		inline ReallocatablePointsArray(unsigned int nb_point, Point centre,float rayon, float s);
-		inline ReallocatablePointsArray(const std::initializer_list<float> &list); 
-		ReallocatablePointsArray& operator =(const ReallocatablePointsArray R){//Ici	
+		inline ReallocatablePointsArray(const std::initializer_list<float> &list);
+		ReallocatablePointsArray& operator =(const ReallocatablePointsArray R){//Ici
 			if(this!=&R){
 				delete [] array;
 				this->taille = R.taille;
@@ -486,13 +486,13 @@ class ReallocatablePointsArray : public PointArray{
 };
 //!FIN ReallocablePointsArray.h
 //!DEBUT ReallocablePointsArray.cpp
-	
+
 	inline ReallocatablePointsArray::ReallocatablePointsArray():PointArray(){}
 	inline ReallocatablePointsArray::ReallocatablePointsArray(size_t taille):PointArray(taille){}//constructeur délégué
 	inline ReallocatablePointsArray::ReallocatablePointsArray(const ReallocatablePointsArray &R):PointArray(R.taille){cout << "ReallocablePointArray Cc" << endl;}
 	inline ReallocatablePointsArray::ReallocatablePointsArray(unsigned int nb_point, Point centre,float rayon, float s):PointArray(nb_point,centre,rayon,s){}
 	inline ReallocatablePointsArray::ReallocatablePointsArray(const std::initializer_list<float> &list):PointArray(list){}
-	
+
 //!FIN ReallocablePointsArray.h
 //FIN TP4
 int main(){
@@ -505,7 +505,6 @@ int main(){
 	string chaine = "<circle cx=\"100\" cy=\"100\" r=\"75\" fill=\"red\"/>";
 	S << chaine << endl;
 	
-	
 	//Geom2D Classe abstraites
 	/*Geom2D G;										G.info();
 	Geom2D G1(1,2);									G1.info();
@@ -514,7 +513,7 @@ int main(){
 	FillProperty F;									F.info();
 	FillProperty F1(c);								F1.info();
 	FillProperty F2(Color::blue); 					F2.info();
-	/*Classe abstraire  
+	/*Classe abstraire
 	Surface S1;										S1.info();
 	Surface S2(500,200,Color::blue);				S2.info();
 	*/
@@ -530,7 +529,7 @@ int main(){
 	Square carr2(100,200,50,Color::grey);
 	carr2.Rotate(45);
 	S << carr << endl;
-	
+
 	R.Translate(-100,-100);
 	R.info();
 	carr2.Translate(50,50);
@@ -541,7 +540,7 @@ int main(){
 	//*************************Ouverture écriture sur un fichier les test
 	//~ string s = "test2.html";
 	//~ ofstream fichier(s, ios::out | ios::trunc); // ouverture en écriture avec effacement du fichier ouvert / OU LE CREER SI EXISTE
-	//~ 
+	//~
 	//~ if(fichier)
 	//~ {
 		//~ string nom = "Xav57";
@@ -551,9 +550,9 @@ int main(){
 		//~ fichier.close();
 	//~ }
 	//~ else
-		//~ cerr << "Impossible d'ouvrir le fichier !" << endl; 
-		
-	//! TP4 
+		//~ cerr << "Impossible d'ouvrir le fichier !" << endl;
+
+	//! TP4
 		PointArray A;
 	Point P(3,3);
 	A[9]= P;
@@ -578,9 +577,9 @@ int main(){
 	cout << "Rarray3" << endl;
 	ReallocatablePointsArray Rarray3;Rarray3.view();//taille = 10
 
-	
+
 	//test initializer_list
-	auto lise = {1.f,2.f,3.f,4.f,5.f,6.f,7.f,8.f}; 
+	auto lise = {1.f,2.f,3.f,4.f,5.f,6.f,7.f,8.f};
 	PointArray Parray(lise);
 	cout << "Parray" << endl;
 	Parray.view();
@@ -596,6 +595,6 @@ int main(){
 	Rarray4=Rarray3;
 	cout << "Rarray4 après" << endl;
 	Rarray4.view();
-	
+
 	return 0;
 	}
