@@ -57,9 +57,10 @@ void ex3(){
   }
 }
 void ex4(){
+  //Algo calcul vecteur OTD matrice
   int mat[V][V] = {{0,1,0,0,0,0},{0,0,1,1,0,0},{0,0,0,0,1,0},{0,0,1,0,1,0},{0,0,0,0,0,1},{0,0,0,0,0,0}};
   int vm[V]={0}, vp[V]={0};
-  int i,j;
+  int i,j,k;
   for(i=0 ; i<V ; i++){
     for(j=0 ; j<V ; j++){
       if(mat[i][j]==1){
@@ -71,17 +72,37 @@ void ex4(){
   printf("Matrice : \n");
   for(int x=0 ; x<V ; x++){
     for(int y=0 ; y<V ; y++){
-      printf("%d ",mat[i][j]);
+      printf("%d ",mat[x][y]);
     }
     printf("\n");
   }
-  printf("Vecteur plus \n");
+  printf("\nVecteur plus \n");
   for(int x=0 ; x<V ; x++){
-    printf("%d ",vp[i]);
+    printf("%d ",vp[x]);
   }
-  printf("Vecteur moins \n");
+  printf("\nVecteur moins \n");
   for(int x=0 ; x<V ; x++){
-    printf("%d ",vm[i]);
+    printf("%d ",vm[x]);
+  }
+
+  //Algo tri topologique matrice
+  for(i=0 ; i<V ; i++){
+    j = 0;
+    while(vm[j]!=0){
+      j++;
+    }
+    int *l = malloc(j*sizeof(int));
+    vm[j] = -1;
+    for(k=0 ; k<V ; k++){
+      if(mat[j][k]==1){
+        vm[k] = vm[k]-1;
+      }
+    }
+  }
+
+  printf("\nVecteur moins apres : \n");
+  for(int x=0 ; x<V ; x++){
+    printf("%d ",vm[x]);
   }
 }
 
@@ -123,4 +144,5 @@ void tri_bulles(int tab[],int taille){
       taille--;
   }
 }
-//Tri couleurs
+
+//Tri Hollandais

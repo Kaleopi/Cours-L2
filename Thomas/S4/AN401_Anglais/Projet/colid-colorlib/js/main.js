@@ -28,8 +28,8 @@
         responsiveClass: true,
         nav: true,
         autoplay: true,
-        autoplayTimeout: 4000,
-        smartSpeed: 1000,
+        autoplayTimeout: 4500,
+        smartSpeed: 500,
         navText: ['<i class="ti-arrow-left"></i>', '<i class="ti-arrow-right" ></i>'],
         items: 1
     });
@@ -100,7 +100,7 @@
             }
         });
     };
-    // Call the functions 
+    // Call the functions
     magnifPopup();
 
     //Background Parallax
@@ -116,7 +116,7 @@
 
 
 
-    //Function to animate slider captions 
+    //Function to animate slider captions
     function doAnimations(elems) {
         //Cache the animationend event in a variable
         var animEndEv = 'webkitAnimationEnd animationend';
@@ -130,21 +130,21 @@
         });
     }
 
-    //Variables on page load 
+    //Variables on page load
     var $myCarousel = $('.caption-slider'),
         $firstAnimatingElems = $myCarousel.find('.item:first').find("[data-animation ^= 'animated']");
 
-    //Initialize carousel 
+    //Initialize carousel
     $myCarousel.carousel();
 
-    //Animate captions in first slide on page load 
+    //Animate captions in first slide on page load
     doAnimations($firstAnimatingElems);
 
-    //Pause carousel  
+    //Pause carousel
     $myCarousel.carousel('pause');
 
 
-    //Other slides to be animated on carousel slide event 
+    //Other slides to be animated on carousel slide event
     $myCarousel.on('slide.bs.carousel', function (e) {
         var $animatingElems = $(e.relatedTarget).find("[data-animation ^= 'animated']");
         doAnimations($animatingElems);
