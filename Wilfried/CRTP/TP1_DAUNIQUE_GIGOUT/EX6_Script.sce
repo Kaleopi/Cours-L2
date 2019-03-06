@@ -52,7 +52,7 @@ disp(K);
 //Test Comparaison
     //si au final de l'appelle de GAUSS on Obtient les bons résultat alors 
     //REDUC fonctionne
-disp(K);
+
 disp("////////////////////////////////////////////////////////////////")
 disp("GAUSS");
     //TEST GAUSS
@@ -71,7 +71,7 @@ disp("b=");
 disp(b);
 disp("H=");
 disp(H);
-disp("SI H==b alors GAUSS a fonctionné");
+disp("SI H==b alors GAUSS fonctionne");
 
 
 
