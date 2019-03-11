@@ -504,7 +504,8 @@ int main(){
 	SVGstream S("fichier",0);
 	string chaine = "<circle cx=\"100\" cy=\"100\" r=\"75\" fill=\"red\"/>";
 	S << chaine << endl;
-	
+
+
 	//Geom2D Classe abstraites
 	/*Geom2D G;										G.info();
 	Geom2D G1(1,2);									G1.info();

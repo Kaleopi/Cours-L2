@@ -10,6 +10,9 @@
 #include <string>
 #include <initializer_list>
 #include <vector>
+#include <cmath>
+
+#define PI 3.14159265
 
 using namespace std;
 
@@ -71,23 +74,39 @@ public:
 };
 
 class Geom2D : public Transform{
+protected:
+  Point2D p;
+public:
+  Geom2D():p(){}
+  Geom2D(float x, float y):p(x,y){}
 
+  Point2D getPoint(){return p;}
+  void setX(float x){p.setPoint2Dx(x);}
+  void setY(float y){p.setPoint2Dy(y);}
 };
 
 class FillProperty : public Color{
 protected:
     Color c;
 public:
-    void setColor(Color col){
-        c = col;
-        cout << "Couleur changée"<<endl;
-    }
+  FillProperty():c(){}
+  void setColor(Color col){
+    c = col;
+    cout << "Couleur changée"<<endl;
+  }
+  const char* getColor(){
+    return c.getName();
+  }
 };
 
 class Surface : public FillProperty, public Geom2D{
+protected:
+  float S_rotate;
 public:
-    virtual void info(){};
-    virtual void aire(){};
+  Surface():Geom2D(),FillProperty(),S_rotate(0){cout << "Surface par defaut" << endl;}
+  Surface(float x, float y, const Color& color):Geom2D(x,y),FillProperty(),S_rotate(0){cout << "S_tout spécifier\n" << endl;};
+  virtual void info(){}
+  virtual double aire(){return 0;}
 };
 
 class Disc : public Surface, public Point2D{
@@ -135,6 +154,12 @@ protected:
     Point2D origine;
     Color color;
 public:
+    Rectangle(){
+      this->witdh = 200;
+      this->height = 100;
+      this->origine = Point2D(0,0);
+      this->color = red;
+    }
     Rectangle(double witdh, double height, Point2D p, Color color){
         this->witdh = witdh;
         this->height = height;
@@ -180,7 +205,13 @@ public:
 };
 
 class Square : public Rectangle{
-
+  Square():Rectangle(){}
+  Square(double wh, Point2D origine, Color color):Rectangle(wh,wh,origine,color){}
+  void info(){
+    cout << "Square : \n\tCouleur : "<<c.getName() << "\n\tGeom2D(x,y) : ("<<origine.getPoint2Dx()<<","<<origine.getPoint2Dy()<<")\n\tLongueur de cote : "<<witdh<<"\n"<<endl;
+  }
+  double aire(){return height*height;}
+  virtual void Scale(float s){height*=s;}
 };
 
 class PointsArray : public Transform, public Point2D{
@@ -213,6 +244,16 @@ public:
       pArray[i++]=p;
     }
   }
+  PointsArray(int nbPoints, Point2D centre, float rayon, float s){
+    Point2D p;
+    float theta;
+    for(int i=0 ; i<nbPoints ; i++){
+      theta = static_cast<float>(2.f*PI*i)/static_cast<float>(nbPoints);
+      p.setPoint2Dx((centre.getPoint2Dx()+rayon)*cos(theta));
+      p.setPoint2Dy((centre.getPoint2Dy()+rayon)*sin(theta));
+      this->pArray[i] = p;
+    }
+  }
 
   void info(){
     // cout << size;
@@ -220,10 +261,85 @@ public:
       pArray[i].info();
     }
   }
+  void translation(float a, float b){
+    for(int i=0 ; i<size ; i++){
+      pArray[i].setPoint2Dx(pArray[i].getPoint2Dx()+a);
+      pArray[i].setPoint2Dy(pArray[i].getPoint2Dy()+b);
+    }
+  }
+  void Rotate(float rotation){
+    float cx=0,cy=0;
+		for(int i = 0; i < size; i++){
+			cx=pArray[i].getPoint2Dx()+cx;
+			cy=pArray[i].getPoint2Dy()+cy;
+		}
+		cx = cx/static_cast<float>(size);
+		cy = cy/static_cast<float>(size);
+		//CALCUL AVEC CENTRE (0,0)
+		Point2D *tableau= new Point2D[size];
+		float x,y;
+		for(int i = 0; i < size; i++){
+			x=pArray[i].getPoint2Dx();
+			y=pArray[i].getPoint2Dy();
+			tableau[i].setPoint2Dx(x*cosf(rotation)-y*cosf(rotation));
+			tableau[i].setPoint2Dy(x*cosf(rotation)+y*cosf(rotation));
+
+		}
+		//On met dans le tableau
+		for(int i = 0; i < size ; i++){
+			pArray[i].setPoint2Dx(cx+tableau[i].getPoint2Dx()-cx);
+			pArray[i].setPoint2Dy(cy+tableau[i].getPoint2Dy()-cx);
+		}
+		delete [] tableau;
+  }
+  void Rescale(float s){
+    float cx = 0.f,
+      cy = 0.f;
+    for(int i=0 ; i<size ; i++){
+      cx=pArray[i].getPoint2Dx()+cx;
+      cy=pArray[i].getPoint2Dy()+cy;
+    }
+    cx = cx/static_cast<float>(size);
+    cy = cy/static_cast<float>(size);
+    float x,y;
+    for(int i=0 ; i<size; i++){
+      x=pArray[i].getPoint2Dx();
+      y=pArray[i].getPoint2Dy();
+      pArray[i].setPoint2Dx(cx+s*(x-cx));
+      pArray[i].setPoint2Dy(cy+s*(y-cy));
+    }
+  }
 };
 
-class ReallocatablePoints : public PointsArray{
+class ReallocatablePointsArray : public PointsArray{
 
+public:
+  ReallocatablePointsArray(size_t size):PointsArray(size){}
+  ReallocatablePointsArray(const ReallocatablePointsArray &R):PointsArray(R.size){cout << "ReallocatablePointsArray Cc" << endl;}
+  ReallocatablePointsArray& operator=(const ReallocatablePointsArray &p){
+    if(this!=&p){
+      for(int i=0 ; i<size ; i++){
+        pArray[i] = p.pArray[i];
+      }
+    }
+    return *this;
+  }
+  ReallocatablePointsArray(const initializer_list<Point2D> &list):PointsArray(list){}
+  ReallocatablePointsArray(int nbPoints, Point2D centre, float rayon, float s):PointsArray(nbPoints, centre, rayon, s){}
+};
+
+class Polygon : public Surface, public ReallocatablePointsArray{
+protected:
+  ReallocatablePointsArray *poly;
+  int size;
+public:
+  Polygon(){
+    size = 3;
+    poly = new ReallocatablePointsArray(size);
+    for(int i=0 ; i<size ; i++){
+      poly[i] = new Point2D(i,i);
+    }
+  }
 };
 
 

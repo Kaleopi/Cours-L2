@@ -368,7 +368,7 @@ input:-webkit-autofill:focus {
 
 .client-area,
 .header-area {
-    background: #000000 url('images/fond-bleu.jpg') no-repeat scroll center center / cover;
+    background: #000000 url('images/test6.jpg') no-repeat scroll center center / cover;
 }
 
 .anlge-bg {
@@ -386,7 +386,8 @@ input:-webkit-autofill:focus {
     top: 0;
     width: 100%;
     height: 100%;
-    opacity: 0.8
+    opacity: 0;
+
 }
 
 .header-text h2 {
@@ -509,7 +510,8 @@ input:-webkit-autofill:focus {
 
 .caption-slider .caption-desc {
     -webkit-animation-delay: 0.6s;
-    animation-delay: 0.6s
+    animation-delay: 0.6s;
+    font-size: 17px;
 }
 
 .caption-slider .caption-button {
@@ -594,17 +596,17 @@ input:-webkit-autofill:focus {
 }
 
 /***
-*Testimonial-Page
+*Testimonial-Page Client Says
 ***/
 
 .testimonial-area {
-    background: url('images/parallax-7.jpg') no-repeat scroll center center / cover;
+    background: url('images/test3.jpg') no-repeat scroll center center / cover;
     position: relative;
     color: #ffffff;
 }
 
 .testimonial-area:before {
-    opacity: 0.9
+    opacity: 0
 }
 
 .testimonial {
@@ -642,7 +644,7 @@ input:-webkit-autofill:focus {
 ***/
 
 .price-area {
-    background: url('images/parallax-6.jpg') no-repeat scroll center center / cover
+    background: url('images/test5.png') no-repeat scroll center center / cover
 }
 
 .price-table h3 {
