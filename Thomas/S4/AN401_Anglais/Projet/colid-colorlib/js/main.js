@@ -28,7 +28,7 @@
         responsiveClass: true,
         nav: true,
         autoplay: true,
-        autoplayTimeout: 4500,
+        autoplayTimeout: 7000,
         smartSpeed: 500,
         navText: ['<i class="ti-arrow-left"></i>', '<i class="ti-arrow-right" ></i>'],
         items: 1
@@ -135,7 +135,7 @@
         $firstAnimatingElems = $myCarousel.find('.item:first').find("[data-animation ^= 'animated']");
 
     //Initialize carousel
-    $myCarousel.carousel();
+    $myCarousel.carousel({interval: 14000});
 
     //Animate captions in first slide on page load
     doAnimations($firstAnimatingElems);
