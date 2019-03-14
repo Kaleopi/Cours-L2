@@ -33,11 +33,11 @@ public:
     int max();
     int min();
     void supprime(int nb);
-    
+
     void affiche_arbre();           // fonctionne uniquement sur Windows...
     void affiche_arbre_1();         // ancienne version
     friend ostream& operator<<(ostream& o, Arbre a);
-    
+
 };
 
 #endif

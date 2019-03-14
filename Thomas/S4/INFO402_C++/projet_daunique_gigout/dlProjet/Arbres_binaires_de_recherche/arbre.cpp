@@ -1,5 +1,7 @@
 
 #include <iostream>
+#include <stdio.h>
+#include <cassert>
 using namespace std;
 
 #include "arbre.h"
@@ -113,15 +115,16 @@ void Arbre::supprime(int nb)
     if( vide() )
         cerr<<endl<<"a.supprime("<<nb<<") : arbre vide !"<<endl;
     else
-        if( racine->etiquette() == nb)
-            if( racine->fils_gauche()==VIDE && racine->fils_droit()==VIDE ){
+
+        if (racine->etiquette() == nb)
+            if (racine->fils_gauche() == VIDE && racine->fils_droit() == VIDE) {
                 delete racine;
                 racine = VIDE;
-            }
-            else
+            } else
                 racine->supprime_racine();
         else
             racine->supprime(nb);
+
 }
 
 void Arbre::affiche_arbre()

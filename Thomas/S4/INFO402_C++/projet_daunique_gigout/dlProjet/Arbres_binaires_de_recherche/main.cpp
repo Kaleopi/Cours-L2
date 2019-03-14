@@ -7,7 +7,7 @@ using namespace std;
 #include "arbre.h"
 #include <time.h>
 
-#define MAX 100
+#define MAX 10
 #define TAILLE_MAX 50
 /*
 				##########################################
@@ -60,25 +60,25 @@ int main()
     Noeud *pere;
     do{
         cout<<endl;
-        cout<<" quel element voulez vous supprimer ? ('-1' pour quitter) :";
+		cout<<" quel element voulez vous supprimer ? ('-1' pour quitter) :";
 		cin>>x;
         cout<<endl<<endl;
-        if( x != -1){
-		    pere = a.recherche_pere(x);
-		    cout<<" pere      :  "<<pere->etiquette()<<endl;
-		    cout<<" pere->fg  :  "<<pere->etiquette_fg()<<endl;
-		    cout<<" pere->fd  :  "<<pere->etiquette_fd()<<endl;
-		    cout<<endl;
-		    cout<<"\tsupprime("<<x<<") : ";
-		    a.supprime(x);
-		    cout<<endl<<endl;
-		    cout<<" a = "<<a<<endl;
-		    cout<<endl<<endl;
-		    cout<<" racine : "<<a.etiquette()<<endl;
-		    cout<<" hauteur : "<<a.hauteur()<<endl;
-		    cout<<" cardinal: "<<a.cardinal()<<endl;
-		    cout<<endl;
-		    a.affiche_arbre();
+        if( x != -1) {
+			pere = a.recherche_pere(x);
+			cout << " pere      :  " << pere->etiquette() << endl;
+			cout << " pere->fg  :  " << pere->etiquette_fg() << endl;
+			cout << " pere->fd  :  " << pere->etiquette_fd() << endl;
+			cout << endl;
+			cout << "\tsupprime(" << x << ") : ";
+			a.supprime(x);
+			cout << endl << endl;
+			cout << " a = " << a << endl;
+			cout << endl << endl;
+			cout << " racine : " << a.etiquette() << endl;
+			cout << " hauteur : " << a.hauteur() << endl;
+			cout << " cardinal: " << a.cardinal() << endl;
+			cout << endl;
+			a.affiche_arbre();
 		}
 	}
     while( x != -1 ); 
