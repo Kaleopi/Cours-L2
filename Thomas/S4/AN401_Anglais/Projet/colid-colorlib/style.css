@@ -644,7 +644,7 @@ input:-webkit-autofill:focus {
 ***/
 
 .price-area {
-    background: url('images/test5.png') no-repeat scroll center center / cover
+    background: url('images/test5.png') no-repeat scroll center center / cover;
 }
 
 .price-table h3 {
