@@ -86,19 +86,26 @@ void ex4(){
   }
 
   //Algo tri topologique matrice
-  for(i=0 ; i<V ; i++){
-    j = 0;
-    while(vm[j]!=0){
-      j++;
+  void Tritopo(int *tableau, int taille){
+      i=0;
+  for(j=0;j<taille;j++){
+    if(V[j]==0){
+      V[j]--;
+      L[i]=j+1;
+      i++;
     }
-    int *l = malloc(j*sizeof(int));
-    vm[j] = -1;
-    for(k=0 ; k<V ; k++){
-      if(mat[j][k]==1){
-        vm[k] = vm[k]-1;
+    for(k=0;k<6;k++){
+      if(G[j][k]==1){
+        V[k]--;
       }
     }
   }
+
+  for(i=0;i<5;i++){
+    printf("L[%d]=%d\n",i,L[i]);
+  }
+
+}
 
   printf("\nVecteur moins apres : \n");
   for(int x=0 ; x<V ; x++){

@@ -20,7 +20,8 @@ public:
   Arbre(size_t taille);                                                         //Par init par taille
   Arbre(const Arbre& a);                                                        //Par copie
   Arbre(Arbre&& a);                                                             //Par déplacement
-  Arbre(const initializer_list<Noeud> &liste);                                  //Par liste
+  Arbre(const initializer_list<Noeud> &liste);                                   //Par liste
+  Arbre(a.begin(),a.end());                                                      //Par Range
   //Opérateurs
   Arbre& operator=(const Arbre& a);                                             //Assignation par copie
 
