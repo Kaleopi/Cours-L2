@@ -1,3 +1,4 @@
+GILETJAUNE = read.table("C:/Users/Thoma/Desktop/Cours-L2/Thomas/S4/MINF401_Statistiques/TP/Script/iris.dat",header=TRUE)
 mean(GILETJAUNE$Sepal.Length)
 par(mfrow=c(2,2))
 n=(max(GILETJAUNE$Sepal.Length)-min(GILETJAUNE$Sepal.Length))/0.2
