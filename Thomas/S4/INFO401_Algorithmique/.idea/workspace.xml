@@ -32,10 +32,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2bc3403d-658e-4ff1-a1fe-7b7957a0b597" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/TP/TP7/Piles.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TP/TP7/Piles.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../INFO402_C++/0402" beforeDir="false" afterPath="$PROJECT_DIR$/../INFO402_C++/0402" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../INFO402_C++/projet_daunique_gigout/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../INFO402_C++/projet_daunique_gigout/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TP/TP7/Piles.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/TP/TP7/Piles.cpp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -63,8 +60,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/TP/TP7/Piles.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="7" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
+            <state relative-caret-position="119">
+              <caret line="7" column="12" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -95,7 +92,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="550" />
     <option name="y" value="10" />
     <option name="width" value="1410" />
@@ -173,12 +170,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1552922438960</updated>
-      <workItem from="1552922440236" duration="263000" />
+      <workItem from="1552922440236" duration="302000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="263000" />
+    <option name="totallyTimeSpent" value="302000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -231,8 +228,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/TP/TP7/Piles.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="7" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
+        <state relative-caret-position="119">
+          <caret line="7" column="12" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
         </state>
       </provider>
     </entry>
