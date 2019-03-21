@@ -1,10 +1,13 @@
+using namespace std;
 // includes standards
 #include <iostream>
+#include <ostream>
+#include <initializer_list>
+#include <cassert>
 
 // includes perso
 #include "arbre.hpp"
 
-using namespace std;
 
 //Constructeur
     //par défault
@@ -43,23 +46,45 @@ Arbre::Arbre(const initializer_list<Noeud> &liste){
   }
 }
 
-//A vérifier
-Arbre::Arbre(const Arbre& a){
-  if(this!=a){
-    for(int i=0 ;;){
-      
-    }
-  }
-}
     //par Range
 //A vérifier
-Arbre(a.begin(),a.end()){
-    for(int i=0 ; i!=a.end() ; i++){
-
+Arbre(Iterator* a.debut(),Iterator* a.fin()){
+    for(Arbre::iterator i=a.debut() ; i!=a.fin() ; i++){
+    insertion(&a.debut);
     }
 }
 //Assignation
     //Par copie
 Arbre& operator=(const Arbre& a){
-
+  if(this!=a){
+    for(Arbre::iterator i=a.begin() ; i!=a.end() ; i++){
+      racine[i] = a.racine[i];
+    }
+  }
+  return *this;
 }
+
+//insertion
+  //à tester
+void Arbre::insertion(int nb){
+  if(vide()){
+    racine=new Noeud(nb);
+  }else{
+    return(racine->appartient(nb));
+  }
+}
+//Test si VIDE
+  //à tester
+bool Arbre::vide() {
+    if(racine == nullptr){
+       return true;
+     }else return false;
+}
+//Test Pour Set si un nombre appartient déjà au tableau
+  //à tester
+bool Arbre::appartient(int nb){
+    if(vide()){
+        return false;
+      }else return( racine->appartient(nb) );
+}
+////////////////////////////////////////////////////////////////////////////////

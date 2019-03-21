@@ -1,5 +1,9 @@
 #ifndef NOEUD_H
 #define NOEUD_H
+using namespace std;
+
+#include <iostream>
+#include <ostream>
 
 class Noeud{
 protected:

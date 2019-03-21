@@ -57,7 +57,7 @@ Noeud *Noeud::videSousArbre()
 
 bool Noeud::noeud_vide()
 {
-    // NB : 'this' pointeur sur le Noeud même
+    // NB : 'this' pointeur sur le Noeud mï¿½me
     if( this == VIDE ) return true;
     else return false;
 }
@@ -102,24 +102,24 @@ bool Noeud::appartient(int nb)
 
 int Noeud::etiquette()
 {
-    // le test est une 'sécurité' pour éviter la lecture d'un noeud vide ...
+    // le test est une 'sï¿½curitï¿½' pour ï¿½viter la lecture d'un noeud vide ...
     if( noeud_vide() ){
         cerr<<endl<<"n.etiquette(): noeud 'vide'"<<endl;
         return -1;
     }
     else
-        return v;  
+        return v;
 }
 
 int Noeud::etiquette_fg()
 {
     if( noeud_vide() ){
-        cerr<<endl<<"n.etiquette_fg(): noeud vide"<<endl;        
+        cerr<<endl<<"n.etiquette_fg(): noeud vide"<<endl;
         return -1;
     }
     else{
-        // sécurité pour éviter la lecture d'un noeud vide ...
-        if( fg->noeud_vide() ){ 
+        // sï¿½curitï¿½ pour ï¿½viter la lecture d'un noeud vide ...
+        if( fg->noeud_vide() ){
             cerr<<endl<<"n.etiquette_fg(): pas de fils gauche"<<endl;
             return -1;
         }
@@ -131,7 +131,7 @@ int Noeud::etiquette_fg()
 int Noeud::etiquette_fd()
 {
     if( noeud_vide() ){
-        cerr<<endl<<"n.etiquette_fd(): noeud vide"<<endl;        
+        cerr<<endl<<"n.etiquette_fd(): noeud vide"<<endl;
         return -1;
     }
     else{
@@ -140,7 +140,7 @@ int Noeud::etiquette_fd()
             return -1;
         }
         else
-            return ( fd->etiquette() );  
+            return ( fd->etiquette() );
     }
 }
 
@@ -148,18 +148,18 @@ int Noeud::hauteur()
 {
     if( fg->noeud_vide() &&  fd->noeud_vide() )
         return 1;
-    else 
+    else
         if( fg->noeud_vide() )
             return ( fd->hauteur() + 1 );
-        else 
+        else
             if( fd->noeud_vide() )
                 return ( fg->hauteur() + 1 );
             else{                           // fg et fd != VIDE
                 int hg = fg->hauteur();
                 int hd = fd->hauteur();
-                if( hg > hd ) 
+                if( hg > hd )
                     return hg + 1;
-                else 
+                else
                     return hd + 1;
             }
 }
@@ -197,7 +197,7 @@ int Noeud::min()
 // ###########################################################################
 // ###########################################################################
 
-//                  V ) Opérations sur les sous-arbres :
+//                  V ) Opï¿½rations sur les sous-arbres :
 
 // ###########################################################################
 // ###########################################################################
@@ -218,7 +218,7 @@ Noeud *Noeud::fils_droit()
 int Noeud::etiquette(Noeud *pere, int nb)
 {
     // Rq : on ne peut pas autoriser une modification quelconque
-    // de l'arbre, il faut faire attention à ce que l'arbre restent
+    // de l'arbre, il faut faire attention ï¿½ ce que l'arbre restent
     // un arbre binaire de recherche.
     // ( Rappel : v == etiquette() )
     if( noeud_vide() )     // this != VIDE ...
@@ -239,7 +239,7 @@ int Noeud::etiquette(Noeud *pere, int nb)
                 if( fg->max() < nb )
                     if( fd->noeud_vide() )
                         v = nb;
-                    else                        // fd != VIDE 
+                    else                        // fd != VIDE
                         if( nb < fd->min() )
                             v = nb;
                         else{
@@ -256,7 +256,7 @@ int Noeud::etiquette(Noeud *pere, int nb)
                     if( fg->max() < nb && nb < pere->etiquette() )
                         if( fd->noeud_vide() )
                             v = nb;
-                        else                        // fd != VIDE 
+                        else                        // fd != VIDE
                             if( nb < fd->min())
                                 v = nb;
                             else{
@@ -273,7 +273,7 @@ int Noeud::etiquette(Noeud *pere, int nb)
                         if( fd->min() > nb && nb > pere->etiquette() )
                             if( fg->noeud_vide() )
                                 v = nb;
-                            else                        // fd != VIDE 
+                            else                        // fd != VIDE
                                 if( nb > fg->max() )
                                     v = nb;
                                 else{
@@ -285,12 +285,12 @@ int Noeud::etiquette(Noeud *pere, int nb)
                             cerr<<" modification non permise, fg->max() >= nb";
                             cerr<<" ou nb >= pere->etiquette() "<<endl;
                         }
-                        
+
             else{
                 cerr<<endl<<"n.etiquette("<<nb<<") :";
                 cerr<<" modification non permise, pere->fils() != n"<<endl;
             }
-    return v; 
+    return v;
 }
 
 void Noeud::insertion(int nb)
@@ -330,7 +330,7 @@ Noeud *Noeud::recherche(int *t, int taille)
         for(int i=0; i<taille && b; i++){
             if( t[i] == -1 )
                 tmp = tmp->fg;
-            else 
+            else
                 if( t[i] == 1 )
                     tmp = tmp->fd;
                 else
@@ -380,9 +380,9 @@ Noeud *Noeud::recherche_pere(int nb)
 
 void Noeud::supprime(int nb)
 {
-    // on sait que nb != v car cette situation est géré par le noeud précédent
-    // qui pointe sur ce noeud. (et n'ayant pas le Noeud "père" qui pointe
-    // sur le noeud même, on ne pourra pas modifié son fils ...)
+    // on sait que nb != v car cette situation est gï¿½rï¿½ par le noeud prï¿½cï¿½dent
+    // qui pointe sur ce noeud. (et n'ayant pas le Noeud "pï¿½re" qui pointe
+    // sur le noeud mï¿½me, on ne pourra pas modifiï¿½ son fils ...)
 
     // Rappel : noeud->etiquette() == noeud->v
 
@@ -392,7 +392,7 @@ void Noeud::supprime(int nb)
     if( nb < etiquette() )
         if( fg->noeud_vide() ){
             cerr<<endl<<"n.suppresssion: "<<nb;
-            cerr<<" n'appartient pas a l'arbre"<<endl; 
+            cerr<<" n'appartient pas a l'arbre"<<endl;
         }
         else{
             if( nb == fg->etiquette() )
@@ -412,11 +412,11 @@ void Noeud::supprime(int nb)
                             fg = fg->fd;
                             delete tmp;
                         }
-                        else{ // fg a exactement 2 descendants : 
+                        else{ // fg a exactement 2 descendants :
                             tmp = fg->fg;
                             pere_tmp = fg;
                             // tmp == max dans fg->fg
-                            while(tmp->fd != VIDE){ 
+                            while(tmp->fd != VIDE){
                                 pere_tmp = tmp;
                                 tmp = tmp->fd;
                             }
@@ -427,17 +427,17 @@ void Noeud::supprime(int nb)
                             }
                             else{
                                 fg->v = tmp->v;
-                                pere_tmp->fd = tmp->fg; 
+                                pere_tmp->fd = tmp->fg;
                                 delete tmp;
                             }
                         }
             else
                 fg->supprime(nb);
         }
-    else  // nb > v  (égalité impossible par hypothèse)
+    else  // nb > v  (ï¿½galitï¿½ impossible par hypothï¿½se)
         if( fd->noeud_vide() ){
             cerr<<endl<<"n.suppresssion: "<<nb;
-            cerr<<" n'apprtient pas a l'arbre binaire"<<endl; 
+            cerr<<" n'apprtient pas a l'arbre binaire"<<endl;
         }
         else{
 			if( nb == fd->etiquette() )
@@ -461,7 +461,7 @@ void Noeud::supprime(int nb)
                             tmp = fd->fg;
                             pere_tmp = fd;
                             // tmp == max dans fg->fg
-                            while( tmp->fd != VIDE ){ 
+                            while( tmp->fd != VIDE ){
                                 pere_tmp = tmp;
                                 tmp = tmp->fd;
                             }
@@ -472,7 +472,7 @@ void Noeud::supprime(int nb)
                             }
                             else{
                                 fd->v = tmp->v;
-                                pere_tmp->fd = tmp->fg; 
+                                pere_tmp->fd = tmp->fg;
                                 delete tmp;
                             }
                         }
@@ -528,7 +528,7 @@ void Noeud::affiche_sous_arbre_1()
     bool test = true;
     while( i >= 0 ){
         tmp = recherche(t, h);
-        
+
         // affichage du noeud :
         if( test && !tmp->noeud_vide() ){
             for(j=0; t[j] == -1 || t[j] == 1; j++) cout<<"\t";
@@ -537,7 +537,7 @@ void Noeud::affiche_sous_arbre_1()
             if( tmp->fd == VIDE ) cout<<"|";
             cout<<endl;
         }
-        
+
         // noeud suivant :
         switch(t[i]){
             case 1:
@@ -558,20 +558,20 @@ void Noeud::affiche_sous_arbre_1()
                 cerr<<" ? "<<endl;
         }
     }
-    
+
 }
 
 void Noeud::affiche_sous_arbre()
 {
     int h = hauteur()-1, i, j;
     int *t = new int[h+1]; for(i=0; i<h; i++) t[i] = 1;
-    t[h] = 0;   // sécurité pour éviter de sortir du tableau.
+    t[h] = 0;   // sï¿½curitï¿½ pour ï¿½viter de sortir du tableau.
     Noeud *tmp;
     i = h-1;
     bool test = true;
     while( i >= 0 ){
         tmp = recherche(t, h);
-        
+
         // affichage du noeud :
         if( test && !tmp->noeud_vide() ){
             for(j=0; t[j] == -1 || t[j] == 1; j++){
@@ -581,7 +581,7 @@ void Noeud::affiche_sous_arbre()
                     else
                          printf("        %c", 218);
                 else
-                    if( t[j]*t[j+1] == -1) 
+                    if( t[j]*t[j+1] == -1)
                         printf("        %c", 179);
                     else
                         printf("         ");
@@ -590,14 +590,14 @@ void Noeud::affiche_sous_arbre()
             if( tmp->fg != VIDE && tmp->fd != VIDE)
                 printf(" %c%c", 196, 180);
             else
-                if( tmp->fg != VIDE ) 
+                if( tmp->fg != VIDE )
                     printf(" %c%c", 196, 191);
                 else
-                    if( tmp->fd != VIDE ) 
+                    if( tmp->fd != VIDE )
                         printf(" %c%c", 196, 217);
             cout<<endl;
         }
-        
+
         // noeud suivant :
         switch(t[i]){
             case 1:
@@ -618,7 +618,7 @@ void Noeud::affiche_sous_arbre()
                 cerr<<" ? "<<endl;
         }
     }
-    
+
 }
 
 ostream& operator<<(ostream& o, Noeud n)
