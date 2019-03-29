@@ -440,7 +440,7 @@ void Noeud::supprime(int nb)
             cerr<<" n'apprtient pas a l'arbre binaire"<<endl;
         }
         else{
-			if( nb == fd->etiquette() )
+			       if( nb == fd->etiquette() )
                 if( (fd->fg)->noeud_vide() && (fd->fd)->noeud_vide() ){
                     delete fd;
                     fd = VIDE;
