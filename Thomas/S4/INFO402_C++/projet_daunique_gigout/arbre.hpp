@@ -16,6 +16,8 @@ using namespace std;
 class Arbre{
 protected:
   Noeud *racine;
+  typedef Noeud NoeudArbre[100];
+  NoeudArbre noeuds;
 
 public:
   Arbre();                                                                      //Par défaut
@@ -26,21 +28,12 @@ public:
   Arbre(const initializer_list<Noeud> &liste);                                  //Par liste
   Arbre(iterator_type a);                                          //Par Range
   //Opérateurs
-  Arbre& operator=(const Arbre& a);                                              //Assignation par copie
-  //friend class MyIterator<T>;
-  //friend class ConstArbreIterator<T>;
-  //typedef MyIterator< Type >  iterator;
-  //typedef MyIterator< const Type >  const_iterator;
-  Iterator* CreationIterateur(){
-  return new MyIterator(*this);
-  }
-  iterator begin(){
-    Iterator* it=CreationIterateur();
-    return (it.debut());
-  };
-  iterator end(){
-    Iterator* it=CreationIterateur();
-    return (it.fin())};
+  Arbre& operator=(const Arbre& a);//Assignation par copie
+  typedef noeud * iterator;
+  typedef const noeud * const_iterator;
+  iterator begin(){return &noeuds[0];}
+  iterator end() {return &noeuds[100];}
+
 };
 
 
