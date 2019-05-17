@@ -2,6 +2,20 @@
 #include <string.h>
 #include "exercices.h"
 
+/*
+Fonction qui test sur le mot passé en paramètre est un palindrome
+Initialisation
+  taille <- c.longueur
+  retour <- 0
+  Pour i allant de 0 à taille/2 faire
+    Si c[i]==c[taille-i-1]
+      retour <- 1
+    Sinon
+      retour <- 0
+    FinSi
+  FinPour
+  Retourner retour
+*/
 int isPalindrome(char *c){
   int size = strlen(c);
   int retour=0;
@@ -15,6 +29,28 @@ int isPalindrome(char *c){
   }
   return retour;
 }
+
+/*
+Fonction qui permet de parcourir un tableau d'entier et de trouver l'entier qui a le plus d'occurence dans ce tableau
+1er argument : un tableau / 2ème argument : longueur du tableau passé en paramètres
+
+entiers : count <- 0, max <- 0, top <- 0
+Pour i allant de 1 à 8 faire
+  Pour j allant de 0 à n faire
+    Si i == tab[j]
+      count++
+    FinSi
+  FinPour
+FinPour
+
+afficher max, i, count
+Si count > max
+  max = count
+  top = i
+FinSi
+count = 0
+Afficher(top) //affiche le nombre qui a le plus d'occurences
+*/
 void compteur(int tab[], int n){
   int count=0, max=0, top=0;
   for(int i=1 ; i<8 ; i++){
@@ -32,10 +68,12 @@ void compteur(int tab[], int n){
   }
   printf("%d",top);
 }
+
+
 void ex1(){
   char *c1 = "ELLE";
   char *c2 = "LAVAL";
-  char *c3 = "TAMER";
+  char *c3 = "COUCOU";
 
   printf("%s palindrome ? ",c1);
   if(isPalindrome(c1)==1){
@@ -87,13 +125,15 @@ void ex3(){
   }
   printf("%d %d %d\n",max,deb,fin);
 }
-void ex4(){
-  int m1[3][3] = {{1,2,3},{4,5,6},{7,8,9}}
-  int m2[3][3] = {{2,2,2},{2,2,2},{2,2,2}}
-  int m3[3][3];
-  for(int i=0 ; i<3 ; i++){
-    for(int j=0 ; j<3 ; j++){
-      m[i][j] = m1[i][j]*m2[i][j]+m1[i+1][j]*m2[i][j+1]
-    }
-  }
-}
+
+// void ex4(){
+//   int m1[3][3] = {{1,2,3},{4,5,6},{7,8,9}};
+//   int m2[3][3] = {{2,2,2},{2,2,2},{2,2,2}};
+//   int m3[3][3];
+//   int m[3][3;]
+//   for(int i=0 ; i<3 ; i++){
+//     for(int j=0 ; j<3 ; j++){
+//       m[i][j] = m1[i][j]*m2[i][j]+m1[i+1][j]*m2[i][j+1];
+//     }
+//   }
+// }

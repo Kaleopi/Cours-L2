@@ -4,6 +4,6 @@
 
 
 int main(){
-  ex4();
+  ex3();
   return 0;
 }
